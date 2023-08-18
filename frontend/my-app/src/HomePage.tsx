@@ -1,13 +1,14 @@
 import React, { ChangeEvent, ChangeEventHandler, FormEvent, useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import logo from "./logo.svg";
+import axios from 'axios';
 
 function HomePage() {
   const [pastedInput, setPastedInput] = useState("");
   const [inputType, setInputType] = useState("URL"); // 'URL' vs. 'PLAINTEXT'
   const navigate = useNavigate();
 
-  const logSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const logSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Submitted!");
     
